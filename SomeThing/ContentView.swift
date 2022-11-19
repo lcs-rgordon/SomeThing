@@ -33,10 +33,15 @@ struct ContentView: View {
                                 // Is this the currently selected cell?
                                 let selected = row == board.selectedRow && column == board.selectedColumn
                                 
+                                // What will we show or read for the cell view?
+                                let userValue = userRow[column] == 0 ? "" : String(userRow[column])
+                                
                                 CellView(number: userRow[column], isSelected: selected) {
                                     board.selectedRow = row
                                     board.selectedColumn = column
                                 }
+                                .accessibilityValue(userValue)
+                                .accessibilityLabel("Row \(row) column \(column)")
                             }
                             
                             // Show the target number they are working with
