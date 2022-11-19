@@ -42,6 +42,7 @@ struct ContentView: View {
                                 }
                                 .accessibilityValue(userValue)
                                 .accessibilityLabel("Row \(row) column \(column)")
+                                .accessibilityAddTraits(selected ? .isSelected : .isButton)
                             }
                             
                             // Show the target number they are working with
