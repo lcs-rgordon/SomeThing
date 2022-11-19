@@ -53,6 +53,15 @@ class Board: ObservableObject {
             maxNumber = 8
         }
         
-        // some more code to come
+        // Convert the range to a 2D array of values
+        exampleCells = (0..<size).map { _ in
+            (0..<size).map { _ in
+                Int.random(in: 1...maxNumber)
+            }
+            
+        }
+        
+        
+        userCells = Array(repeating: Array(repeating: 0, count: size), count: size)
     }
 }
