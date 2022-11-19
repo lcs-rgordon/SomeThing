@@ -68,4 +68,13 @@ class Board: ObservableObject {
         // Create 2D array for user cells with all zeros
         userCells = Array(repeating: Array(repeating: 0, count: size), count: size)
     }
+    
+    // Write a number into the selected cell
+    func enter(_ number: Int) {
+        if userCells[selectedRow][selectedColumn] == number {
+            userCells[selectedRow][selectedColumn] = 0
+        } else {
+            userCells[selectedRow][selectedColumn] = number
+        }
+    }
 }
