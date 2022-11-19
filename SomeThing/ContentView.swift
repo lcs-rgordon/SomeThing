@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject private var board = Board(.medium)
+    @StateObject private var board = Board(.easy)
     
     // Track whether game is over
     @State private var isGameOver = false
@@ -79,6 +79,14 @@ struct ContentView: View {
                     
                 }
                 .padding()
+                
+                Button("Submit") {
+                    isGameOver = true
+                }
+                .buttonStyle(.borderedProminent)
+                .disabled(board.isSolved == false)
+                
+                Spacer()
             }
             .navigationTitle("SumThing")
             .toolbar {

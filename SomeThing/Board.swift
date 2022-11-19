@@ -26,6 +26,33 @@ class Board: ObservableObject {
     @Published var selectedRow = 0
     @Published var selectedColumn = 0
     
+    // Is the game solved?
+    var isSolved: Bool {
+        
+        // Row sums correct?
+        for i in 0..<exampleCells.count {
+            let exampleSum = exampleCells[i].reduce(0, +)
+            let userSum = userCells[i].reduce(0, +)
+            if exampleSum != userSum { return false }
+        }
+        
+        // Column sums correct?
+        for i in 0..<exampleCells[0].count {
+            let exampleSum = exampleCells.reduce(0) { $0 + $1[i]}
+            let userSum = userCells.reduce(0) { $0 + $1[i]}
+            if exampleSum != userSum { return false }
+        }
+        
+        // Are there any blanks? There shouldn't be
+        for row in userCells {
+            for col in row {
+                if col == 0 { return false }
+            }
+        }
+        
+        return true
+    }
+    
     init(_ difficulty: Difficulty) {
         create(difficulty)
     }
