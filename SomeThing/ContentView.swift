@@ -46,6 +46,8 @@ struct ContentView: View {
                             
                             SumView(number: exampleSum)
                                 .foregroundColor(exampleSum == userSum ? .primary : .red)
+                                .accessibilityLabel("Row \(row + 1) sum: \(exampleSum)")
+                                .accessibilityHint(exampleSum == userSum ? "Correct" : "Incorrect")
                         }
                         
                     }
@@ -59,7 +61,9 @@ struct ContentView: View {
                             
                             SumView(number: exampleSum)
                                 .foregroundColor(exampleSum == userSum ? .primary : .red)
-                            
+                                .accessibilityLabel("Column \(column + 1) sum: \(exampleSum)")
+                                .accessibilityHint(exampleSum == userSum ? "Correct" : "Incorrect")
+
                         }
                     }
                 }
@@ -73,6 +77,7 @@ struct ContentView: View {
                         Button(String(i)) {
                             board.enter(i)
                         }
+                        .accessibilityLabel("Enter \(i)")
                         .frame(maxWidth: .infinity)
                         .font(.largeTitle)
                     }
