@@ -22,7 +22,8 @@ struct ContentView: View {
                     ForEach(0..<board.exampleCells.count, id: \.self) { row in
                         
                         GridRow {
-                            let userRow = board.userCells[row]
+                            let exampleRow = board.exampleCells[row] // what it should be
+                            let userRow = board.userCells[row] // what it currently is
                             
                             ForEach(0..<userRow.count, id: \.self) { column in
                                 
@@ -34,8 +35,29 @@ struct ContentView: View {
                                     board.selectedColumn = column
                                 }
                             }
+                            
+                            // Show the target number they are working with
+                            // Adding a "sum row" after the foreach
+                            let exampleSum = sum(forRow: exampleRow)
+                            let userSum = sum(forRow: userRow)
+                            
+                            SumView(number: exampleSum)
+                                .foregroundColor(exampleSum == userSum ? .primary : .red)
                         }
                         
+                    }
+                    
+                    // Show the target number for the column
+                    GridRow {
+                        ForEach(0..<board.exampleCells[0].count, id: \.self) { column in
+                            
+                            let exampleSum = sum(forColumn: column, in: board.exampleCells) // what it should be
+                            let userSum = sum(forColumn: column, in: board.userCells)
+                            
+                            SumView(number: exampleSum)
+                                .foregroundColor(exampleSum == userSum ? .primary : .red)
+                            
+                        }
                     }
                 }
                 .padding(.horizontal)
@@ -58,6 +80,14 @@ struct ContentView: View {
             .navigationTitle("SumThing")
             
         }
+    }
+    
+    func sum(forRow row: [Int]) -> Int {
+        row.reduce(0, +)
+    }
+    
+    func sum(forColumn column: Int, in cells: [[Int]]) -> Int {
+        cells.reduce(0) { $0 + $1[column] }
     }
 }
 
