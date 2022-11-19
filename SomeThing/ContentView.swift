@@ -103,6 +103,10 @@ struct ContentView: View {
                     }
                 }
                 Button("Cancel", role: .cancel) { }
+            } message: {
+                if board.isSolved {
+                    Text("You solved the board correctly. Good job! 🎉")
+                }
             }
         }
     }
