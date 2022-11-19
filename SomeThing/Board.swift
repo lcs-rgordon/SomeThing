@@ -26,6 +26,10 @@ class Board: ObservableObject {
     @Published var selectedRow = 0
     @Published var selectedColumn = 0
     
+    init(_ difficulty: Difficulty) {
+        create(difficulty)
+    }
+    
     func create(_ difficulty: Difficulty) {
         
         // Reset selected cell
