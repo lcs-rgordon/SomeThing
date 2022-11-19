@@ -11,6 +11,9 @@ struct ContentView: View {
     
     @StateObject private var board = Board(.medium)
     
+    // Track whether game is over
+    @State private var isGameOver = false
+    
     var body: some View {
 
         NavigationStack {
@@ -78,6 +81,13 @@ struct ContentView: View {
                 .padding()
             }
             .navigationTitle("SumThing")
+            .toolbar {
+                Button {
+                    isGameOver = true
+                } label: {
+                    Label("Start a New Game", systemImage: "plus")
+                }
+            }
             
         }
     }
