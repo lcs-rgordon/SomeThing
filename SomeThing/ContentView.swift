@@ -41,6 +41,19 @@ struct ContentView: View {
                 .padding(.horizontal)
                 
                 Spacer()
+                
+                HStack {
+                    ForEach(1..<10) { i in
+                        
+                        Button(String(i)) {
+                            board.enter(i)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .font(.largeTitle)
+                    }
+                    
+                }
+                .padding()
             }
             .navigationTitle("SumThing")
             
