@@ -53,7 +53,7 @@ class Board: ObservableObject {
             maxNumber = 8
         }
         
-        // Convert the range to a 2D array of values
+        // Convert the range to a 2D array of random values
         exampleCells = (0..<size).map { _ in
             (0..<size).map { _ in
                 Int.random(in: 1...maxNumber)
@@ -61,7 +61,7 @@ class Board: ObservableObject {
             
         }
         
-        
+        // Create 2D array for user cells with all zeros
         userCells = Array(repeating: Array(repeating: 0, count: size), count: size)
     }
 }
