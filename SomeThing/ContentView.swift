@@ -78,6 +78,7 @@ struct ContentView: View {
                             board.enter(i)
                         }
                         .accessibilityLabel("Enter \(i)")
+                        .accessibilityHint(board.hint(for: i))
                         .frame(maxWidth: .infinity)
                         .font(.largeTitle)
                     }

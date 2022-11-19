@@ -117,4 +117,14 @@ class Board: ObservableObject {
             
         }
     }
+    
+    func hint(for number: Int) -> String {
+        let currentValue = userCells[selectedRow][selectedColumn]
+        
+        if currentValue == number {
+            return "Clear row \(selectedRow + 1) column \(selectedColumn + 1)"
+        } else {
+            return "Set row \(selectedRow + 1) column \(selectedColumn + 1) to \(number)"
+        }
+    }
 }
