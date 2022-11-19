@@ -12,6 +12,7 @@
 		819288782929454B003A64AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819288772929454B003A64AA /* Assets.xcassets */; };
 		8192887B2929454B003A64AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8192887A2929454B003A64AA /* Preview Assets.xcassets */; };
 		8192888229294597003A64AA /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8192888129294597003A64AA /* Board.swift */; };
+		8192888429294869003A64AA /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8192888329294869003A64AA /* CellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		819288772929454B003A64AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8192887A2929454B003A64AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8192888129294597003A64AA /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		8192888329294869003A64AA /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				819288732929454A003A64AA /* SomeThingApp.swift */,
 				819288752929454A003A64AA /* ContentView.swift */,
+				8192888329294869003A64AA /* CellView.swift */,
 				8192888129294597003A64AA /* Board.swift */,
 				819288772929454B003A64AA /* Assets.xcassets */,
 				819288792929454B003A64AA /* Preview Content */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8192888429294869003A64AA /* CellView.swift in Sources */,
 				819288762929454A003A64AA /* ContentView.swift in Sources */,
 				819288742929454A003A64AA /* SomeThingApp.swift in Sources */,
 				8192888229294597003A64AA /* Board.swift in Sources */,
