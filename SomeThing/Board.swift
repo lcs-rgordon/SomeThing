@@ -72,9 +72,22 @@ class Board: ObservableObject {
     // Write a number into the selected cell
     func enter(_ number: Int) {
         if userCells[selectedRow][selectedColumn] == number {
+            // If the user is already there
             userCells[selectedRow][selectedColumn] = 0
         } else {
+            
             userCells[selectedRow][selectedColumn] = number
+            
+            // If we have a cell to our right, move to the right
+            // Otherwise, if there is a row below, move down and go back to column 0
+            // Basically makes input faster
+            if selectedColumn < exampleCells[0].count - 1 { // if we have space to our right
+                selectedColumn += 1
+            } else if selectedRow < exampleCells.count - 1 {
+                selectedRow += 1
+                selectedColumn = 0
+            }
+            
         }
     }
 }
