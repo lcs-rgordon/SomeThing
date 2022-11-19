@@ -120,6 +120,7 @@ struct ContentView: View {
                     Text("You solved the board correctly. Good job! 🎉")
                 }
             }
+            .dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         }
     }
     
