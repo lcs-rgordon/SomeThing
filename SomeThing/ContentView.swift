@@ -12,13 +12,39 @@ struct ContentView: View {
     @StateObject private var board = Board(.medium)
     
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+
+        NavigationStack {
+            
+            VStack {
+                Spacer()
+                
+                Grid(horizontalSpacing: 2, verticalSpacing: 2) {
+                    ForEach(0..<board.exampleCells.count, id: \.self) { row in
+                        
+                        GridRow {
+                            let userRow = board.userCells[row]
+                            
+                            ForEach(0..<userRow.count, id: \.self) { column in
+                                
+                                // Is this the currently selected cell?
+                                let selected = row == board.selectedRow && column == board.selectedColumn
+                                
+                                CellView(number: userRow[column], isSelected: selected) {
+                                    board.selectedRow = row
+                                    board.selectedColumn = column
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+                .padding(.horizontal)
+                
+                Spacer()
+            }
+            .navigationTitle("SumThing")
+            
         }
-        .padding()
     }
 }
 
