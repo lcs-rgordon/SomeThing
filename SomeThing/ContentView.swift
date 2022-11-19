@@ -88,7 +88,14 @@ struct ContentView: View {
                     Label("Start a New Game", systemImage: "plus")
                 }
             }
-            
+            .alert("Start a new game", isPresented: $isGameOver) {
+                ForEach(Difficulty.allCases, id: \.self) { difficulty in
+                    Button(String(describing: difficulty).capitalized) {
+                        startGame(difficulty)
+                    }
+                }
+                Button("Cancel", role: .cancel) { }
+            }
         }
     }
     
@@ -98,6 +105,11 @@ struct ContentView: View {
     
     func sum(forColumn column: Int, in cells: [[Int]]) -> Int {
         cells.reduce(0) { $0 + $1[column] }
+    }
+    
+    func startGame(_ difficulty: Difficulty) {
+        isGameOver = false
+        board.create(difficulty)
     }
 }
 
